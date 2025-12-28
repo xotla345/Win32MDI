@@ -14,12 +14,12 @@ SelectObject(mdc, bmp);    // 选入
       /*贴第二张位图*/
       HBITMAP map = (HBITMAP)LoadImage(hInst, MAKEINTRESOURCE(IDB_BITMAP1), IMAGE_BITMAP, 500, 500, LR_CREATEDIBSECTION);
       SelectObject(maphdc, map);
-      BitBlt(mdc, 0, 0, 500, 500, maphdc, 0, 0, SRCCOPY);
+      BitBlt(mdc, 1, 1, 500, 500, maphdc, 0, 0, SRCCOPY);
        
       DeleteDC(maphdc);  /*释放兼容DC*/
       
 // 3.一次性复制到设备DC
-BitBlt(hdc, 0, 0, 500, 500, mdc, 0, 0, SRCCOPY);
+BitBlt(hdc, 1, 1, 500, 500, mdc, 0, 0, SRCCOPY);
  
 // 4.释放缓冲区DC
 DeleteDC(mdc);
